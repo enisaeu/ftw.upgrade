@@ -2,10 +2,14 @@ Changelog
 =========
 
 
-3.3.2 (unreleased)
-------------------
+3.4.0+enisa.0 (2026-06-17)
+--------------------------
 
-- Nothing changed yet.
+- Support registering multiple upgrade-step directories for the same profile,
+  allowing upgrade steps to be split across subfolders. [enisa]
+- Discover Plone sites via plone.distribution's ``get_sites`` in the JSON API,
+  with a fallback to ``plone-overview`` for older Plone versions. [enisa]
+- Simplify the ``ftw`` namespace package declaration. [enisa]
 
 
 3.3.1 (2022-07-08)
