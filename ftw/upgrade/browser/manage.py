@@ -114,7 +114,7 @@ class ManageUpgrades(BrowserView):
         """
         response = self.request.RESPONSE
         response.setHeader('Content-Type', 'text/html')
-        response.setHeader('Transfer-Encoding', 'chunked')
+        # No Transfer-Encoding header: waitress rejects it and chunks the stream itself
         response.write(b'<html>')
         response.write(b'<body>')
         response.write(b'  ' * getattr(response, 'http_chunk_size', 100))

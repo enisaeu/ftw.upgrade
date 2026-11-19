@@ -5,6 +5,9 @@ Changelog
 3.4.0+enisa.1 (unreleased)
 --------------------------
 
+- Fix @@manage-upgrades failing under waitress after the upgrade steps ran.
+  [enisa]
+
 3.4.0+enisa.0 (2026-06-17)
 --------------------------
 
