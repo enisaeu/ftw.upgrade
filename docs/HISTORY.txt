@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-3.4.0+enisa.2 (unreleased)
+3.4.0+enisa.2 (2026-11-20)
 --------------------------
 
 - Replace pkg_resources with importlib.metadata in indexing.py, migration.py
