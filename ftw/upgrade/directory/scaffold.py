@@ -27,9 +27,9 @@ class UpgradeStepCreator(object):
 
     def create(self, name):
         docstring = name.rstrip('.')
-        name = re.sub('\W', '_', name.rstrip('.'))
+        name = re.sub(r'\W', '_', name.rstrip('.'))
 
-        if re.match('^\w*$', docstring):
+        if re.match(r'^\w*$', docstring):
             # docstring seems to not be a sentence but a camelcase classname
             # or a underscored upgrade directory name.
             # Lets make it human readable for use as docstring.

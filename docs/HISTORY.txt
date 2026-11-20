@@ -5,6 +5,16 @@ Changelog
 3.4.0+enisa.2 (unreleased)
 --------------------------
 
+- Replace pkg_resources with importlib.metadata in indexing.py, migration.py
+  and command/__init__.py, so ftw.upgrade imports with setuptools 82+.
+  [enisa]
+
+- Fix bin/upgrade without a subcommand failing with AttributeError.
+  [enisa]
+
+- Use raw strings for regular expressions with backslash escapes.
+  [enisa]
+
 3.4.0+enisa.1 (2026-11-19)
 --------------------------
 

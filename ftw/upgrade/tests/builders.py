@@ -127,7 +127,7 @@ class UpgradeStepBuilder(object):
         zcml._upgrade_step_declarations[self.profile_builder.name] = True
 
     def _create_upgrade(self):
-        name = self.name.replace(' ', '_').replace('\.$', '')
+        name = self.name.replace(' ', '_').replace(r'\.$', '')
         step_name = '{0}_{1}'.format(self.destination_version,
                                      inflection.underscore(name))
         if self.code is None:

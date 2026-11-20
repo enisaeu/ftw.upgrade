@@ -1,4 +1,5 @@
-import pkg_resources
+from importlib.metadata import distribution
+from importlib.metadata import PackageNotFoundError
 
 
 HAS_INDEXING = False
@@ -10,8 +11,8 @@ try:
 except ImportError:
     try:
         # Plone 4 with collective.indexing
-        pkg_resources.get_distribution('collective.indexing')
-    except pkg_resources.DistributionNotFound:
+        distribution('collective.indexing')
+    except PackageNotFoundError:
         def processQueue():
             # Plone 4 without collective.indexing
             pass

@@ -4,6 +4,8 @@ from Acquisition import aq_parent
 from DateTime import DateTime
 from ftw.upgrade.helpers import update_security_for
 from functools import partial
+from importlib.metadata import distribution
+from importlib.metadata import PackageNotFoundError
 from operator import methodcaller
 from persistent.mapping import PersistentMapping
 from plone.app.relationfield.event import extract_relations
@@ -36,13 +38,12 @@ from zope.lifecycleevent import ObjectModifiedEvent
 from zope.schema import getFieldsInOrder
 
 import logging
-import pkg_resources
 import six
 
 
 try:
-    pkg_resources.get_distribution('Products.Archetypes')
-except pkg_resources.DistributionNotFound:
+    distribution('Products.Archetypes')
+except PackageNotFoundError:
     class IBaseObject(Interface):
         pass
 
@@ -53,16 +54,16 @@ else:
     from Products.Archetypes.interfaces import IComputedField
 
 try:
-    pkg_resources.get_distribution('plone.app.blob')
-except pkg_resources.DistributionNotFound:
+    distribution('plone.app.blob')
+except PackageNotFoundError:
     class IBlobWrapper(Interface):
         pass
 else:
     from plone.app.blob.interfaces import IBlobWrapper
 
 try:
-    pkg_resources.get_distribution('archetypes.referencebrowserwidget')
-except pkg_resources.DistributionNotFound:
+    distribution('archetypes.referencebrowserwidget')
+except PackageNotFoundError:
     class IATReferenceField(Interface):
         pass
 else:

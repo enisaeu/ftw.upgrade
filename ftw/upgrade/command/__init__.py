@@ -12,7 +12,7 @@ from ftw.upgrade.command import user
 from ftw.upgrade.command.formatter import FlexiFormatter
 from ftw.upgrade.command.terminal import TERMINAL
 from ftw.upgrade.command.utils import capture
-from pkg_resources import get_distribution
+from importlib.metadata import version
 
 import argcomplete
 import argparse
@@ -21,7 +21,7 @@ import logging
 import sys
 
 
-VERSION = get_distribution('ftw.upgrade').version
+VERSION = version('ftw.upgrade')
 logger = logging.getLogger('ftw.upgrade')
 
 
@@ -130,7 +130,8 @@ class UpgradeCommand(object):
 
         argcomplete.autocomplete(self.parser)
 
-        commands = self.parser.add_subparsers(help='Command')
+        commands = self.parser.add_subparsers(help='Command', dest='subcommand')
+        commands.required = True
         combine_bundles.setup_argparser(commands)
         create.setup_argparser(commands)
         install.setup_argparser(commands)
